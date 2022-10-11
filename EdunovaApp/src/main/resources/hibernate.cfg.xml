@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- https://www.tutorialspoint.com/hibernate/hibernate_annotations.htm -->
+
+        <property name="connection.url">jdbc:mariadb://localhost:3306/edunovahib?createDatabaseIfNotExist=true</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+        <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>
+        <property name="dialect">org.hibernate.dialect.MariaDBDialect</property>
+
+        <property name="hibernate.connection.CharSet">utf8</property>
+        <property name="hibernate.connection.characterEncoding">utf8</property>
+        <property name="hibernate.connection.useUnicode">true</property>
+
+        <property name="show_sql">true</property>
+
+        <property name="format_sql">true</property>
+
+        <!--
+        validate: validate the schema, makes no changes to the database.
+        update: update the schema.
+        create: creates the schema, destroying previous data.
+        create-drop: drop the schema at the end of the session.
+        1. puta create, poslije update
+        -->
+        <property name="hbm2ddl.auto">create</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+        <property name="current_session_context_class">thread</property>
+
+
+
+        <!-- moraju se slijedno navesti klase koje su mapirane -->
+        <mapping class="edunova.model.Smjer" />
+        <mapping class="edunova.model.Polaznik" />
+        <mapping class="edunova.model.Predavac" />
+        <mapping class="edunova.model.Grupa" />
+        <mapping class="edunova.model.Clan" />
+       
+    </session-factory>
+</hibernate-configuration>
