@@ -5,7 +5,6 @@
 
 package edunova;
 
-import edunova.model.Smjer;
 import edunova.util.HibernateUtil;
 import java.math.BigDecimal;
 import org.hibernate.Session;
@@ -18,16 +17,6 @@ public class Start {
 
     public Start() {
         Session session = HibernateUtil.getSession();
-
-        Smjer s = new Smjer();
-        s.setNaziv("Java programiranje");
-        //s.setSifra(1);
-        s.setCijena(new BigDecimal(1000));
-        s.setCertificiran(Boolean.TRUE);
-
-        session.beginTransaction();
-        session.persist(s);
-        session.getTransaction().commit();
     }
 
 
